@@ -31,7 +31,6 @@ class HasFailedSchedulerTask implements IOperation, SingletonInterface
      */
     public function execute($parameter = [])
     {
-        $typo3Version = GeneralUtility::makeInstance(Typo3Version::class);
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_scheduler_task');
         $queryBuilder
             ->count('uid')
@@ -44,7 +43,8 @@ class HasFailedSchedulerTask implements IOperation, SingletonInterface
                 $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, Connection::PARAM_INT))
             );
 
-        $count = $queryBuilder->executeQuery()->fetchFirstColumn(0);
+
+        $count = $queryBuilder->executeQuery()->fetchOne();
 
         return new OperationResult(true, $count > 0);
     }
