@@ -24,7 +24,7 @@ class GetOpCacheStatus implements IOperation, SingletonInterface
      * @param array $parameter None
      * @return OperationResult the current database version
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
 
         /** @var OpcodeCacheService $opCacheService */

@@ -19,7 +19,7 @@ use WapplerSystems\ZabbixClient\OperationResult;
 class GetLastSchedulerRun implements IOperation, SingletonInterface
 {
 
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         /** @var Registry $registry */
         $registry = GeneralUtility::makeInstance(Registry::class);

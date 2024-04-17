@@ -27,10 +27,10 @@ class CheckPathExists implements IOperation, SingletonInterface
     /**
      * execute operation (checkPathExists)
      *
-     * @param array $parameter a path 'path' to a file or folder
+     * @param array|null $parameter a path 'path' to a file or folder
      * @return OperationResult 'file' if path is a file, 'directory' if it's a directory and false if it doesn't exist
      */
-    public function execute($parameter = null)
+    public function execute(array $parameter = null): OperationResult
     {
         $path = $this->getPath($parameter['path']);
         list($path) = glob($path);
@@ -61,9 +61,9 @@ class CheckPathExists implements IOperation, SingletonInterface
      * prepare path, resolve relative path and resolve EXT: path
      *
      * @param string $path absolute or relative path or EXT:foobar/
-     * @return string/bool false if path is invalid, else the absolute path
+     * @return false|string false if path is invalid, else the absolute path
      */
-    protected function getPath($path)
+    protected function getPath($path): false|string
     {
         // getFileAbsFileName can't handle directory path with trailing / correctly
         if (substr($path, -1) === '/') {

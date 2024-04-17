@@ -29,7 +29,7 @@ class GetOutdatedExtensionList implements IOperation, SingletonInterface
      * @param array $parameter Array of extension locations as string (system, global, local)
      * @return OperationResult The extension list
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $scope = $parameter['scope'] ?? '';
 

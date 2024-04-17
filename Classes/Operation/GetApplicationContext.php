@@ -21,7 +21,7 @@ class GetApplicationContext implements IOperation, SingletonInterface
      * @param array $parameter None
      * @return OperationResult the current application context
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
 
         $applicationContext = Environment::getContext();

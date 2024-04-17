@@ -25,7 +25,7 @@ class GetTYPO3Version implements IOperation, SingletonInterface
      * @param array $parameter None
      * @return OperationResult the current PHP version
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $typo3Version = GeneralUtility::makeInstance(Typo3Version::class);
 

@@ -21,7 +21,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use TYPO3\CMS\Core\TypoScript\AST\Node\RootNode;
 use TYPO3\CMS\Core\TypoScript\FrontendTypoScript;
-use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -98,7 +97,7 @@ class ZabbixClient implements MiddlewareInterface
             } catch (InvalidOperationException $ex){
                 return $response->withStatus(404,  $ex->getMessage());
             } catch (\Exception $ex) {
-                return $response->withStatus(500,  substr(strrchr(get_class($ex), "\\"), 1) . ': '. $ex->getMessage());
+                return $response->withStatus(500,  get_class($ex) . ': '. $ex->getMessage());
             }
         }
 

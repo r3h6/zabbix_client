@@ -28,7 +28,7 @@ class GetTotalLogFilesSize implements IOperation, SingletonInterface
      * @param array $parameter None
      * @return OperationResult
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $totalSize = 0;
         $files = GeneralUtility::getFilesInDir(Environment::getVarPath() . '/log/', 'log');

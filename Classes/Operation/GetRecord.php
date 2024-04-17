@@ -46,7 +46,7 @@ class GetRecord implements IOperation, SingletonInterface
      * @param array $parameter A table 'table', field name 'field' and the value 'value' to find the record
      * @return OperationResult The first found record as an array or FALSE if no record was found
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $table = $parameter['table'];
         $field = $parameter['field'];

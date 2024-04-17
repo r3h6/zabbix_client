@@ -36,7 +36,7 @@ class GetFeatureValue implements IOperation, SingletonInterface
      * @param array $parameter None
      * @return OperationResult
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         if (!isset($parameter['feature']) || $parameter['feature'] === '') {
             throw new InvalidArgumentException('feature not set');

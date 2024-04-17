@@ -31,7 +31,7 @@ class GetZabbixLogFileSize implements IOperation, SingletonInterface
      * @param array $parameter None
      * @return OperationResult
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $totalSize = 0;
 

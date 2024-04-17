@@ -39,7 +39,7 @@ class GetExtensionList implements IOperation, SingletonInterface
      * @param array $parameter Array of extension locations as string (system, global, local)
      * @return OperationResult The extension list
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $locations = explode(',', $parameter['scopes']);
         if (is_array($locations) && count($locations) > 0) {

@@ -30,7 +30,7 @@ class GetInsecureExtensionList implements IOperation, SingletonInterface
      * @param array $parameter Array of extension locations as string (loaded, existing)
      * @return OperationResult The extension list
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $scope = $parameter['scope'] ?? '';
 

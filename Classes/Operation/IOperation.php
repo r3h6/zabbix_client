@@ -18,5 +18,5 @@ interface IOperation
      * @param array $parameter Parameters for the operation
      * @return OperationResult The operation result
      */
-    public function execute($parameter = []);
+    public function execute(array $parameter = []): OperationResult;
 }

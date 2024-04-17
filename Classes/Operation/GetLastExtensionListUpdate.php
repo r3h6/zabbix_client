@@ -25,7 +25,7 @@ use TYPO3\CMS\Core\Information\Typo3Version;
 class GetLastExtensionListUpdate implements IOperation, SingletonInterface
 {
 
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $typo3Version = GeneralUtility::makeInstance(Typo3Version::class);
         if (!ExtensionManagementUtility::isLoaded('scheduler')) {

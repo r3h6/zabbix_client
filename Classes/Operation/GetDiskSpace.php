@@ -27,7 +27,7 @@ class GetDiskSpace implements IOperation, SingletonInterface
      * @param array $parameter
      * @return OperationResult
      */
-    public function execute($parameter = [])
+    public function execute(array $parameter = []): OperationResult
     {
         $path = !empty($parameter['path']) ? $parameter['path'] : '/';
 
