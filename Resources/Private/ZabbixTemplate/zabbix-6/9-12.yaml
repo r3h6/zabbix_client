@@ -8,8 +8,8 @@ zabbix_export:
   templates:
     -
       uuid: b19712d20f9344d3a057e0e0585e4cce
-      template: 'Template TYPO3 9-11'
-      name: 'Template TYPO3 9-11'
+      template: 'Template TYPO3 9-12'
+      name: 'Template TYPO3 9-12'
       templates:
         -
           name: 'HTTP Service'
