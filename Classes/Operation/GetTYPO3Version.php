@@ -10,10 +10,9 @@ namespace WapplerSystems\ZabbixClient\Operation;
  */
 
 use TYPO3\CMS\Core\SingletonInterface;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use WapplerSystems\ZabbixClient\Attribute\MonitoringOperation;
 use WapplerSystems\ZabbixClient\OperationResult;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Information\Typo3Version;
 
 /**
  * A Operation which returns the current TYPO3 version
@@ -27,8 +26,9 @@ class GetTYPO3Version implements IOperation, SingletonInterface
      */
     public function execute(array $parameter = []): OperationResult
     {
-        $typo3Version = GeneralUtility::makeInstance(Typo3Version::class);
-
-        return new OperationResult(true, $typo3Version->getVersion());
+        if (((int)($parameter['asInteger'] ?? 0)) === 1) {
+            return new OperationResult(true, VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getCurrentTypo3Version()));
+        }
+        return new OperationResult(true, VersionNumberUtility::getCurrentTypo3Version());
     }
 }
