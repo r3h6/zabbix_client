@@ -10,6 +10,7 @@ namespace WapplerSystems\ZabbixClient\Operation;
  */
 
 use TYPO3\CMS\Core\SingletonInterface;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use WapplerSystems\ZabbixClient\OperationResult;
 
 
@@ -24,7 +25,9 @@ class GetTYPO3Version implements IOperation, SingletonInterface
      */
     public function execute($parameter = [])
     {
-
+        if (((int)($parameter['asInteger'] ?? 0)) === 1) {
+            return new OperationResult(true, VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getCurrentTypo3Version()));
+        }
         return new OperationResult(true, TYPO3_version);
     }
 }
