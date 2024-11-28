@@ -69,7 +69,7 @@ class ZabbixClient implements MiddlewareInterface
             return $response->withStatus(403, 'Not allowed');
         }
 
-        $key = $request->getParsedBody()['key'] ?? $request->getQueryParams()['key'] ?? null;
+        $key = $request->getParsedBody()['key'] ?? $request->getQueryParams()['key'] ?? '';
         $keyAuthenticationProvider = new KeyAuthenticationProvider();
         if (!$keyAuthenticationProvider->hasValidKey($key)) {
             /** @var Response $response */
